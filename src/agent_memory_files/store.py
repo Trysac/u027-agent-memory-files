@@ -66,6 +66,7 @@ class ScanError:
 _Memories = list[Memory]
 _Scored = list[tuple[Memory, int]]
 _Errors = list[ScanError]
+_Names = list[str]
 
 
 class _Skip(Exception):
@@ -474,8 +475,8 @@ class MemoryStore:
         except Exception:
             logger.warning("on_event callback failed for kind=%s", event.kind)
 
-    def _md_names(self, root: Path) -> list[str]:
-        names: list[str] = []
+    def _md_names(self, root: Path) -> _Names:
+        names: _Names = []
         try:
             iterator = os.scandir(root)
         except FileNotFoundError:
