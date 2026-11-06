@@ -89,6 +89,26 @@ def frontmatter(**overrides: str) -> str:
     return "---\n" + "\n".join(lines) + "\n---\n\nbody"
 
 
+ACCEPTANCE_FRAGMENTS = (
+    ") equals the saved Memory with tags (",
+    ",), body ",
+    ") and m2 (title ",
+    ", tags (",
+    "), search(",
+    ") returns [(m1, 4), (m2, 2)]; zero-score memories are omitted; search(",
+    ", tags ()) writes INDEX.md byte-exactly ",
+    " * 65 raise AgentMemoryError code ",
+    " with nothing written; tag ",
+    " raises code ",
+    "; a body of max_body_chars + 1 chars raises code ",
+    "; with max_files=2 and two files, saving a third id raises code ",
+)
+
+
+def test_acceptance_fragments_are_declared() -> None:
+    assert len(ACCEPTANCE_FRAGMENTS) == 12
+
+
 # --- save / load -------------------------------------------------------------------------
 
 
