@@ -9,4 +9,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- Added `agent_memory_files`: a Markdown memory store with JSON-valued frontmatter, ranked keyword search, an index file and deterministic crash-safe compaction.
 - Initial project structure from the factory utility template.
