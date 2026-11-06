@@ -88,12 +88,7 @@ def _check_id(value: object) -> str:
 
 
 def _check_title(title: object) -> str:
-    if (
-        not isinstance(title, str)
-        or len(title) > MAX_TITLE_CHARS
-        or "\n" in title
-        or "\r" in title
-    ):
+    if not isinstance(title, str) or len(title) > MAX_TITLE_CHARS or "\n" in title or "\r" in title:
         raise AgentMemoryError(
             "invalid_memory",
             "title must be one line of at most 200 characters",

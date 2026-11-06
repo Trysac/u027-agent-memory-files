@@ -299,8 +299,7 @@ def test_compact_merges_old_groups(tmp_path: Path) -> None:
     assert summary.created == NOW
     assert summary.updated == NOW
     assert summary.body == (
-        "- Title t1: body t1\n- Title t2: body t2\n- Title t3: body t3\n\n"
-        "<!-- merged: t1 t2 t3 -->"
+        "- Title t1: body t1\n- Title t2: body t2\n- Title t3: body t3\n\n<!-- merged: t1 t2 t3 -->"
     )
 
 
