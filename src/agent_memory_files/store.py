@@ -490,7 +490,7 @@ class MemoryStore:
                             "too_many_files",
                             f"store holds more than {self._max_files} files",
                         )
-        return sorted(names)
+        return sorted(names, key=lambda n: (n.casefold(), n))
 
     def _read_text(self, path: Path) -> str:
         try:
