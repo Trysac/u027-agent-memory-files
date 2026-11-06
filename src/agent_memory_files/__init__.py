@@ -1,21 +1,27 @@
-"""Agent memory stored as Markdown files with JSON-valued frontmatter, ranked keyword search, an index file and deterministic compaction"""
+"""Agent memory as Markdown files with JSON-valued frontmatter, search and compaction."""
 
 from __future__ import annotations
 
-__all__ = ["__version__", "normalize"]
+import logging
+
+from .compaction import CompactionReport, ConcatSummarizer, Summarizer, compact
+from .errors import AgentMemoryError, ErrorCode
+from .store import Memory, MemoryEvent, MemoryStore, ScanError
+
+__all__ = [
+    "AgentMemoryError",
+    "CompactionReport",
+    "ConcatSummarizer",
+    "ErrorCode",
+    "Memory",
+    "MemoryEvent",
+    "MemoryStore",
+    "ScanError",
+    "Summarizer",
+    "__version__",
+    "compact",
+]
 
 __version__ = "0.1.0"
 
-
-def normalize(value: str) -> str:
-    """Return ``value`` trimmed and lower-cased.
-
-    Placeholder API created by the template: replace it with the utility's real behavior.
-
-    Raises:
-        ValueError: if ``value`` is empty or only whitespace.
-    """
-    cleaned = value.strip()
-    if not cleaned:
-        raise ValueError("value must not be empty")
-    return cleaned.lower()
+logging.getLogger(__name__).addHandler(logging.NullHandler())
